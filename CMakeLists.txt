@@ -5,12 +5,15 @@ ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
 
 SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
 
+INCLUDE_DIRECTORIES(../)
+LINK_DIRECTORIES(../lib/)
+
 IF(APPLE)
   INCLUDE_DIRECTORIES(/opt/local/include)
   LINK_DIRECTORIES(/opt/local/lib)
 ENDIF()
 
-find_library(json NAMES json-c json)
+#find_library(json NAMES json-c json)
 
 IF(DEBUG)
   ADD_DEFINITIONS(-DDEBUG -g3)
